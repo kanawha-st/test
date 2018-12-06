@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+    function doCopy() {
+      var cell = document.getElementById("cell").value;
+      var text = document.getElementById("text").value;
+      google.script.run.withSuccessHandler(
+        function(msg){ document.getElementById("msg").innerHTML = msg;}
+      ).withFailureHandler(
+        function(e){ Logger.log(e);}
+      ).copyToCell(cell, text);
+    }
+    </script>
+  </head>
+  <body>
+    <h1>Tel Receptionist System</h1>
+    <iframe src="https://docs.google.com/spreadsheets/d/<?= sheetID ?>"
+      style="display:inline-block" width="50%" height="600px"></iframe>        
+    <div style="display:inline-block" width="50%" border-style="none" margin="0">
+        <div>
+            cell: <input type="text" id="cell" /><br>
+            text: <input type="text" id="text" /><br>
+            <input type="button" value="copy" onclick="doCopy()" />
+            <p id="msg"></p>
+        </div>
+      <div>
+          cell: <input type="text" id="cell" /><br>
+          text: <input type="text" id="text" /><br>
+          <input type="button" value="copy" onclick="doCopy()" />
+          <p id="msg"></p>
+      </div>
+    <div>
+        cell: <input type="text" id="cell" /><br>
+        text: <input type="text" id="text" /><br>
+        <input type="button" value="copy" onclick="doCopy()" />
+        <p id="msg"></p>
+    </div>
+  </div>
+
+  </body>
+</html>
+
+
